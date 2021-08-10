@@ -20,7 +20,9 @@
 1日1回体重を測定し、入力する。
 
 ## 設計書
-
+https://app.diagrams.net/#G18Dhy3Nun_ngrOkcZIvLqLAKWW4JRizUS
+https://docs.google.com/spreadsheets/d/1l8JlvkqAU4gP0iCqKglDfL2uIKplT8GwW67M8TxGBtM/edit#gid=1373217982
+https://docs.google.com/spreadsheets/d/1Ptwf3Trxu5-CogX_22oRVi7CbtvLOcajw9eS7tpo8G4/edit#gid=2133469642
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1LT54KyRDi-NnUmHN3rugxXWn2VaI8qG8HJ-cBLqK7rA/edit#gid=0
@@ -31,7 +33,3 @@ https://docs.google.com/spreadsheets/d/1LT54KyRDi-NnUmHN3rugxXWn2VaI8qG8HJ-cBLqK
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 
-- 

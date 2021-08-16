@@ -68,6 +68,9 @@ gem 'refile-mini_magick'
 gem 'jquery-rails'
 gem 'rubocop-airbnb'
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'omniauth'

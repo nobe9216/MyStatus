@@ -65,14 +65,14 @@ ActiveRecord::Schema.define(version: 2021_08_15_144611) do
     t.string "last_name_kana", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "first_name_kana", default: "", null: false
-    t.string "nickname", default: "", null: false
+    t.string "nickname"
     t.string "profile_image_id"
-    t.integer "start_weight", null: false
-    t.integer "goal_weight", null: false
+    t.integer "start_weight"
+    t.integer "goal_weight"
     t.integer "start_fat"
-    t.integer "age", null: false
-    t.integer "height", null: false
-    t.string "sex", default: "", null: false
+    t.integer "age"
+    t.integer "height"
+    t.string "sex"
     t.text "self_introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -4,6 +4,61 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :姓 %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :名 %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :セイ %><br />
+    <%= f.text_field :last_name_kana, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メイ %><br />
+    <%= f.text_field :first_name_kana, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ニックネーム %><br />
+    <%= f.text_field :nickname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :開始時の体重 %><br />
+    <%= f.text_field :start_weight, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :目標体重 %><br />
+    <%= f.text_field :goal_weight, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :開始時の体脂肪率 %><br />
+    <%= f.text_field :start_fat, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :年齢 %><br />
+    <%= f.text_field :age, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :身長 %><br />
+    <%= f.text_field :height, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :性別 %><br />
+    <%= f.text_field :sex, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

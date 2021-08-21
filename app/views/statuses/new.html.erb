@@ -1,2 +1,21 @@
-<h1>Statuses#new</h1>
-<p>Find me in app/views/statuses/new.html.erb</p>
+<h1>記録の新規投稿</h1>
+<%= form_with model:@status, url:statuses_path, local:true do |f| %>
+  <h4>日付</h4>
+  <%= f.date_field :date %>
+  <h4>体重</h4>
+  <%= f.text_field :weight %>
+  <h4>体脂肪率</h4>
+  <%= f.text_field :fat %>
+  <h4>食事内容</h4>
+  <h6>朝食</h6>
+  <%= f.text_area :breakfast %>
+  <h6>昼食</h6>
+  <%= f.text_area :lunch %>
+  <h6>夕食</h6>
+  <%= f.text_area :dinner %>
+  <h6>間食</h6>
+  <%= f.text_area :snacks %>
+  <h4>メモ</h4>
+  <%= f.text_area :memo %>
+  <%= f.submit '投稿' %>
+<% end %>

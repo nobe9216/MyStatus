@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'timeline' => 'relationships#timeline'
   end
   get 'unsubscribe' => 'users#unsubscribe'
-  resources :statuses, only: [:new, :index, :show, :edit, :update] do
+  resources :statuses, only: [:new, :create, :index, :show, :edit, :update] do
     resources :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end

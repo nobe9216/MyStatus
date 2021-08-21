@@ -32,4 +32,23 @@
   </p>
 <% end %>
 <h4>コメント一覧</h4>
+<div>
+<p>コメント件数：<%= @status.comments.count %></p>
+<% @status.comments.each do |comments| %>
+  <p><%#= image_tag('sample-author1.jpg') %></p>
+  <%= comments.user.nickname %>
+  <%= comments.created_at.strftime('%Y/%m/%d') %><%= comments.comment %>
+  <% if comments.user == current_user %>
+  <div>
+    <%= link_to "削除", status_comment_path(comments.status, comments), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+</div>
 <h4>コメント投稿フォーム</h4>
+<div>
+<%= form_with(model:[@status, @comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>

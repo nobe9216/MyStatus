@@ -1,7 +1,20 @@
 class CommentsController < ApplicationController
   def create
+    status = Status.find(params[:status_id])
+    comment = current_user.comments.new(comment_params)
+    comment.status_id = status.id
+    comment.save
+    redirect_to request.referer
   end
 
   def destroy
+    Comment.find_by(id: params[:id], status_id: params[:status_id]).destroy
+    redirect_to request.referer
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:comment)
   end
 end

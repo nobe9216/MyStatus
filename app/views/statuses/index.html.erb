@@ -1,2 +1,22 @@
-<h1>Statuses#index</h1>
-<p>Find me in app/views/statuses/index.html.erb</p>
+<table>
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>体重</th>
+      <th>体脂肪率</th>
+      <th>メモ</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><%= status.date %></td>
+        <td><%= status.weight %></td>
+        <td><%= status.fat %></td>
+        <td><%= status.memo %></td>
+        <td><%= link_to '詳細', status_path(status.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

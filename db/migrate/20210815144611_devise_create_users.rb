@@ -42,14 +42,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name_kana, default: '', null: false
       t.string :first_name, default: '', null: false
       t.string :first_name_kana, default: '', null: false
-      t.string :nickname, default: '', null: false
+      t.string :nickname
       t.string :profile_image_id
-      t.integer :start_weight, default: '', null: false
-      t.integer :goal_weight, default: '', null: false
+      t.integer :start_weight
+      t.integer :goal_weight
       t.integer :start_fat
-      t.integer :age, default: '', null: false
-      t.integer :height, default: '', null: false
-      t.string :sex, default: '', null: false
+      t.integer :age
+      t.integer :height
+      t.string :sex
       t.text :self_introduction
 
       t.timestamps null: false

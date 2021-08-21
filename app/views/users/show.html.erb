@@ -1,2 +1,64 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div>
+  サイドバー
+  <div>ランキング</div>
+</div>
+
+<div>
+  メイン
+  <div>
+    <%= @user.nickname %>
+    <%= @user.goal_weight %>kg
+    <!--上手くリンク行かないからメンターに質問-->
+    <a href='#{user.id}/followings'>フォロー：<%= @user.followings.count %></a>
+    <a href='#{user.id}/followers'>フォロワー：<%= @user.followers.count %></a>
+    <%= @user.self_introduction %>
+    <%= link_to 'プロフィール編集', edit_user_path(@user.id) %>
+  </div>
+
+  <div>グラフ
+  <!--  <canvas id="myLineChart"></canvas>-->
+  <!--  <script>-->
+  <!--    $(document).on('turbolinks:load', function() {-->
+  <!--      var ctx = document.getElementById("myLineChart");-->
+  <!--      var myLineChart = new Chart(ctx, {-->
+  <!--        type: 'line',-->
+  <!--        data: {-->
+  <!--          labels: ['6日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],-->
+  <!--          datasets: [-->
+  <!--            {-->
+  <!--              label: '体重',-->
+  <!--              data: [<#%= @user.statuses.pluck(:weight).created_6day_ago %>, <#%= @user.statuses.pluck(:weight).created_5day_ago %>, <#%= @user.statuses.pluck(:weight).created_4day_ago %>, <#%= @user.statuses.pluck(:weight).created_3day_ago %>, <#%= @user.statuses.pluck(:weight).created_2day_ago %>, <#%= @user.statuses.pluck(:weight).created_yesterday %>, <#%= @user.statuses.pluck(:weight).created_today %>],-->
+  <!--              borderColor: "rgba(0,0,255,1)",-->
+  <!--              backgroundColor: "rgba(0,0,0,0)"-->
+  <!--            }-->
+  <!--          ],-->
+  <!--        },-->
+  <!--        options: {-->
+  <!--          title: {-->
+  <!--            display: true,-->
+  <!--            text: '7日間の体重推移'-->
+  <!--          },-->
+  <!--          scales: {-->
+  <!--            yAxes: [{-->
+  <!--              ticks: {-->
+  <!--                suggestedMax: 10,-->
+  <!--                suggestedMin: 0,-->
+  <!--                stepSize: 1,-->
+  <!--                callback: function(value, index, values){-->
+  <!--                  return  value-->
+  <!--                }-->
+  <!--              }-->
+  <!--            }]-->
+  <!--          },-->
+  <!--        }-->
+  <!--      });-->
+  <!--    });-->
+  <!--  </script>-->
+  <!--</div>-->
+
+  <div>目標まであと◯◯kg！！</div>
+
+  <div>記録一覧へのリンク</div>
+
+  <div>退会画面へのリンク</div>
+</div>

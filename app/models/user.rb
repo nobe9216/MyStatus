@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  attachment :image
+  attachment :profile_image
 
   has_many :statuses, dependent: :destroy
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
@@ -24,5 +24,25 @@ class User < ApplicationRecord
   validates :age, presence: true
   validates :height, presence: true
   validates :sex, presence: true
+
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+
+  def following?(user)
+    followings.include?(user)
+  end
+
+  # scope :created_today, -> { where(created_at: Time.zone.now.all_day) } # 今日
+  # scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) } # 前日
+  # scope :created_2day_ago, -> { where(created_at: 2.day.ago.all_day) } # 2日前
+  # scope :created_3day_ago, -> { where(created_at: 3.day.ago.all_day) } # 3日前
+  # scope :created_4day_ago, -> { where(created_at: 4.day.ago.all_day) } # 4日前
+  # scope :created_5day_ago, -> { where(created_at: 5.day.ago.all_day) } # 5日前
+  # scope :created_6day_ago, -> { where(created_at: 6.day.ago.all_day) } # 6日前
 
 end

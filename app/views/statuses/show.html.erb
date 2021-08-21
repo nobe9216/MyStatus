@@ -1,2 +1,22 @@
-<h1>Statuses#show</h1>
-<p>Find me in app/views/statuses/show.html.erb</p>
+<h1>記録詳細</h1>
+<h4>日付</h4>
+<%= @status.date %>
+<h4>体重</h4>
+<%= @status.weight %>
+<h4>体脂肪率</h4>
+<%= @status.fat %>
+<h4>食事内容</h4>
+<h6>朝食</h6>
+<%= @status.breakfast %>
+<h6>昼食</h6>
+<%= @status.lunch %>
+<h6>夕食</h6>
+<%= @status.dinner %>
+<h6>間食</h6>
+<%= @status.snacks %>
+<h4>メモ</h4>
+<%= @status.memo %>
+<%= link_to '編集', edit_status_path(@status.id) %>
+<h4>いいねボタン</h4>
+<h4>コメント一覧</h4>
+<h4>コメント投稿フォーム</h4>

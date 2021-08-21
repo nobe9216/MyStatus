@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @statuses = @user.statuses
+    @chartlabels = @statuses.map {|status| status.created_at }
+    @chartdatas = @statuses.map {|status| status.weight }
   end
 
   def edit

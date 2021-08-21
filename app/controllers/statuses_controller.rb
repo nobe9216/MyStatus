@@ -18,6 +18,7 @@ class StatusesController < ApplicationController
 
   def show
     @status = Status.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

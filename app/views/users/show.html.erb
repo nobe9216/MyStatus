@@ -11,7 +11,15 @@
     <a href='#{user.id}/followings'>フォロー：<%= @user.followings.count %></a>
     <a href='#{user.id}/followers'>フォロワー：<%= @user.followers.count %></a>
     <%= @user.self_introduction %>
-    <%= link_to 'プロフィール編集', edit_user_path(@user.id) %>
+    <% if current_user.id == @user.id %>
+      <%= link_to 'プロフィール編集', edit_user_path(@user.id) %>
+    <% else %>
+      <% if current_user.following?(@user) %>
+        <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete %>
+      <% else %>
+        <%= link_to "フォロー", user_relationships_path(@user.id), method: :post %>
+      <% end %>
+    <% end %>
   </div>
 
   <div>グラフ</div>

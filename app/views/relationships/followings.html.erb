@@ -1,0 +1,22 @@
+<h2><%= @user.nickname %>のフォロー一覧</h2>
+<% if @users.exists? %>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to "#{user.nickname}", user_path(user.id) %></td>
+        <td>フォロー: <%= link_to "#{user.followings.count}", user_followings_path(user.id) %></td>
+        <td>フォロワー: <%= link_to "#{user.followers.count}", user_followers_path(user.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>フォロー中のユーザーはいません</p>
+<% end %>

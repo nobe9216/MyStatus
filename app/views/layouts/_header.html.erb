@@ -18,7 +18,7 @@
         <%= link_to 'ユーザー一覧', users_path %>
       </li>
       <li class="nav-list-item">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
       </li>
     <% else %>
       <li class="nav-list-item">

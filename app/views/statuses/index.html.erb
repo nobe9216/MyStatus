@@ -15,8 +15,12 @@
         <td><%= status.weight %></td>
         <td><%= status.fat %></td>
         <td><%= status.memo %></td>
-        <td><%= link_to '詳細', status_path(status.id) %></td>
+        <td>
+          <%= link_to '詳細', user_status_path(@user.id, status.id) %>
+          <%= link_to '削除', user_status_path(@user.id, status.id), method: :delete %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to '記録する', new_user_status_path(@user.id) %>

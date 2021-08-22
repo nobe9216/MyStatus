@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find_by(id: params[:id], status_id: params[:status_id]).destroy
+    Comment.find_by(user_id: params[:user_id], status_id: params[:status_id], id: params[:id]).destroy
     redirect_to request.referer
   end
 

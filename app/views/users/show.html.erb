@@ -22,11 +22,42 @@
     <% end %>
   </div>
 
-  <div>グラフ</div>
+  <div>
+    <canvas id="myChart" width="200" height="100"> </canvas>
 
-  <div>目標まであと◯◯kg！！</div>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                  <% @chartlabels.each do |label| %>
+                    "<%= label %>",
+                  <% end %>
+                ],
+                datasets: [{
+                    label: "体重",
+                    data: <%= @weights %>,
+                    backgroundColor: 'rgba(255, 80, 120, 1.0)',
+                    borderColor: 'rgba(255, 80, 120, 1.0)',
+                    fill: false
+                }]
+            },
+        });
+    </script>
+  </div>
 
-  <div>記録一覧へのリンク</div>
+  <% if @last_weight.present? %>
+    <h1><strong>目標まであと<%= @user.goal_weight.to_i - @last_weight.to_i %>kg！！</strong></h1>
+  <% else %>
+    <h1><strong>体重を記録しよう！！</strong></h1>
+  <% end %>
 
-  <div>退会画面へのリンク</div>
+  <%= link_to '記録する', new_user_status_path(@user.id) %>
+
+  <%= link_to 'カレンダーへ', user_statuses_path(@user.id) %>
+
+  <% if user_signed_in? %>
+    <%= link_to '退会はこちら', unsubscribe_path %>
+  <% end %>
 </div>

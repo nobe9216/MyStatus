@@ -16,17 +16,17 @@
 <%= @status.snacks %>
 <h4>メモ</h4>
 <%= @status.memo %>
-<%= link_to '編集', edit_status_path(@status.id) %>
+<%= link_to '編集', edit_user_status_path(@user.id, @status.id) %>
 <h4>いいねボタン</h4>
 <% if @status.favorited_by?(current_user) %>
   <p>
-    <%= link_to status_favorite_path(@status), method: :delete do %>
+    <%= link_to user_status_favorite_path(@user.id, @status), method: :delete do %>
       ♥<%= @status.favorites.count %> いいね
     <% end %>
   </p>
   <% else %>
   <p>
-    <%= link_to status_favorites_path(@status), method: :post do %>
+    <%= link_to user_status_favorites_path(@user.id, @status), method: :post do %>
       ♡<%= @status.favorites.count %> いいね
     <% end %>
   </p>
@@ -40,14 +40,14 @@
   <%= comments.created_at.strftime('%Y/%m/%d') %><%= comments.comment %>
   <% if comments.user == current_user %>
   <div>
-    <%= link_to "削除", status_comment_path(comments.status, comments), method: :delete %>
+    <%= link_to "削除", user_status_comment_path(comments.user_id, comments.status_id, comments.id), method: :delete %>
   </div>
   <% end %>
 <% end %>
 </div>
 <h4>コメント投稿フォーム</h4>
 <div>
-<%= form_with(model:[@status, @comment], local: true) do |f| %>
+<%= form_with(model:[@user, @status, @comment], local: true) do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
 <% end %>

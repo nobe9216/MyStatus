@@ -1,5 +1,5 @@
 <h1>記録の新規投稿</h1>
-<%= form_with model:@status, url:statuses_path, local:true do |f| %>
+<%= form_with model:@status, url:user_statuses_path, local:true do |f| %>
   <h4>日付</h4>
   <%= f.date_field :date %>
   <h4>体重</h4>

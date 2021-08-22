@@ -1,5 +1,5 @@
 <h1>記録の編集</h1>
-<%= form_with model:@status, url:status_path(@status.id), local:true do |f| %>
+<%= form_with model:@status, url:user_status_path(@user.id, @status.id), local:true do |f| %>
   <h4>日付</h4>
   <%= f.date_field :date %>
   <h4>体重</h4>

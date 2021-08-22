@@ -9,7 +9,7 @@
         <%= link_to 'マイページ', user_path(current_user) %>
       </li>
       <li class="nav-list-item">
-        <%= link_to 'カレンダー', statuses_path %>
+        <%= link_to 'カレンダー', user_statuses_path(current_user) %>
       </li>
       <li class="nav-list-item">
         <%= link_to 'タイムライン', user_timeline_path(current_user) %>

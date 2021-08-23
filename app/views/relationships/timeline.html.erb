@@ -1,2 +1,26 @@
-<h1>Relationships#timeline</h1>
-<p>Find me in app/views/relationships/timeline.html.erb</p>
+<table>
+  <thead>
+    <tr>
+      <th>ニックネーム</th>
+      <th>日付</th>
+      <th>体重</th>
+      <th>体脂肪率</th>
+      <th>メモ</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @timeline.order(date: :desc).each do |status| %>
+      <tr>
+        <td><%= status.nickname %></td>
+        <td><%= status.date %></td>
+        <td><%= status.weight %></td>
+        <td><%= status.fat %></td>
+        <td><%= status.memo %></td>
+        <td>
+            <%#= link_to '詳細', user_status_path(status.user_id, status.id) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,10 +1,27 @@
 <div>
-  サイドバー
-  <div>ランキング</div>
+  <table>
+    <thead>
+      <tr>
+        <th>ニックネーム</th>
+        <th>性別</th>
+        <th>年齢</th>
+        <th>マイナス体重</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ranking.first(10).each do |ranking| %>
+      <tr>
+        <td><%= ranking[:nickname] %></td>
+        <td><%= ranking[:sex] %></td>
+        <td><%= ranking[:age] %>歳</td>
+        <td><%= ranking[:diff] %>kg</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <div>
-  メイン
   <div>
     <%= @user.nickname %>
     <%= @user.goal_weight %>kg
@@ -23,27 +40,26 @@
   </div>
 
   <div>
-    <canvas id="myChart" width="200" height="100"> </canvas>
-
+    <canvas id="myChart" width="200" height="100"></canvas>
     <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [
-                  <% @chartlabels.each do |label| %>
-                    "<%= label %>",
-                  <% end %>
-                ],
-                datasets: [{
-                    label: "体重",
-                    data: <%= @weights %>,
-                    backgroundColor: 'rgba(255, 80, 120, 1.0)',
-                    borderColor: 'rgba(255, 80, 120, 1.0)',
-                    fill: false
-                }]
-            },
-        });
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [
+            <% @chartlabels.each do |label| %>
+              "<%= label %>",
+            <% end %>
+          ],
+          datasets: [{
+            label: "体重",
+            data: <%= @weights %>,
+            backgroundColor: 'rgba(255, 80, 120, 1.0)',
+            borderColor: 'rgba(255, 80, 120, 1.0)',
+            fill: false
+          }]
+        },
+      });
     </script>
   </div>
 

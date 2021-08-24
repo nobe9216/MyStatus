@@ -10,15 +10,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @timeline.order(date: :desc).each do |status| %>
+    <% @timeline.each do |status| %>
       <tr>
-        <td><%= status.nickname %></td>
+        <td><%= status.user.nickname %></td>
         <td><%= status.date %></td>
         <td><%= status.weight %></td>
         <td><%= status.fat %></td>
         <td><%= status.memo %></td>
         <td>
-            <%#= link_to '詳細', user_status_path(status.user_id, status.id) %>
+            <%= link_to '詳細', user_status_path(status.user.id, status.id) %>
         </td>
       </tr>
     <% end %>

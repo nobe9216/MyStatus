@@ -17,20 +17,7 @@
 <h4>メモ</h4>
 <%= @status.memo %>
 <%= link_to '編集', edit_user_status_path(@user.id, @status.id) %>
-<h4>いいねボタン</h4>
-<% if @status.favorited_by?(current_user) %>
-  <p>
-    <%= link_to user_status_favorite_path(@user.id, @status), method: :delete do %>
-      ♥<%= @status.favorites.count %> いいね
-    <% end %>
-  </p>
-  <% else %>
-  <p>
-    <%= link_to user_status_favorites_path(@user.id, @status), method: :post do %>
-      ♡<%= @status.favorites.count %> いいね
-    <% end %>
-  </p>
-<% end %>
+<%= render 'favorites/favorite', user: current_user, status: @status %>
 <h4>コメント一覧</h4>
 <div>
 <p>コメント件数：<%= @status.comments.count %></p>

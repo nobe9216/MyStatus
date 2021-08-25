@@ -17,7 +17,7 @@
 <h4>メモ</h4>
 <%= @status.memo %>
 <%= link_to '編集', edit_user_status_path(@user.id, @status.id) %>
-<%= render 'favorites/favorite', user: current_user, status: @status %>
+<div class="favorite"><%= render 'favorites/favorite', user: current_user, status: @status %></div>
 <h4>コメント一覧</h4>
 <div>
 <p>コメント件数：<%= @status.comments.count %></p>

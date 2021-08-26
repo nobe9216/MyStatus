@@ -39,8 +39,14 @@ $(function () {
             $(document).on('turbolinks:before-cache', clearCalendar);
 
             $('#calendar').fullCalendar({
-                events: '/events.json'
+                events: 'statuses.json'
             });
         }
     });
 });
+// $(function () {
+//  console.log("test")
+//  $('#calendar').fullCalendar({
+//   events: 'statuses.json'
+//  });
+// })

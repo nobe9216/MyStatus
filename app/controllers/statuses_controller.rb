@@ -8,8 +8,12 @@ class StatusesController < ApplicationController
   def create
     status = Status.new(status_params)
     status.user_id = current_user.id
-    status.save
-    redirect_to user_statuses_path(params[:user_id])
+    if status.save
+      redirect_to user_statuses_path(params[:user_id])
+    else
+      redirect_to user_statuses_path(params[:user_id])
+      flash[:notice] = '保存できませんでした 日付と体重は必ず記入してください'
+    end
   end
 
   def index
@@ -37,7 +41,7 @@ class StatusesController < ApplicationController
   def destroy
     status = Status.find(params[:id])
     status.destroy
-    redirect_to request.referer
+    redirect_to user_statuses_path
   end
 
   private

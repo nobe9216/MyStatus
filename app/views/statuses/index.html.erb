@@ -1,27 +1,2 @@
 <div id="calendar"></div>
-<table>
-  <thead>
-    <tr>
-      <th>日付</th>
-      <th>体重</th>
-      <th>体脂肪率</th>
-      <th>メモ</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @statuses.each do |status| %>
-      <tr>
-        <td><%= status.date %></td>
-        <td><%= status.weight %></td>
-        <td><%= status.fat %></td>
-        <td><%= status.memo %></td>
-        <td>
-          <%= link_to '詳細', user_status_path(@user.id, status.id) %>
-          <%= link_to '削除', user_status_path(@user.id, status.id), method: :delete %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 <%= link_to '記録する', new_user_status_path(@user.id) %>

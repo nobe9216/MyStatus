@@ -1,6 +1,6 @@
 <% if status.favorited_by?(user) %>
   <p>
-    <%= link_to user_status_favorite_path(user.id, status.id), method: :delete, remote: true do %>
+    <%= link_to user_status_favorites_path(user.id, status.id), method: :delete, remote: true do %>
       ♥<%= status.favorites.count %> いいね
     <% end %>
   </p>

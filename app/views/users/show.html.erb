@@ -25,8 +25,8 @@
   <div>
     <%= @user.nickname %>
     <%= @user.goal_weight %>kg
-    <a href='#{user.id}/followings'>フォロー：<%= @user.followings.count %></a>
-    <a href='#{user.id}/followers'>フォロワー：<%= @user.followers.count %></a>
+    <%= link_to "フォロー：#{@user.followings.count}人", user_followings_path(@user.id) %>
+    <%= link_to "フォロワー：#{@user.followers.count}人", user_followers_path(@user.id) %>
     <%= @user.self_introduction %>
     <% if current_user.id == @user.id %>
       <%= link_to 'プロフィール編集', edit_user_path(@user.id) %>

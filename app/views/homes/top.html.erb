@@ -1,14 +1,14 @@
-<h1><strong>MyStatus</strong></h1>
-<h3><strong>ようこそMyStatusへ！！</strong></h3>
-<p>
+<h1 class="font__title"><strong>MyStatus</strong></h1>
+<h3 class="font__message"><strong>ようこそMyStatusへ！！</strong></h3>
+<p class="font__message">
   当サイトは、体重記録サイトです。<br>
   日々の体重を記録し、変化を分かりやすく視覚化します。<br>
   また、他のユーザーと記録をシェアすることで、モチベーションの意地を助けます。
 </p>
 
 <% if user_signed_in? %>
-  <%= link_to 'マイページ', user_path(current_user.id) %>
+  <%= link_to 'マイページ', user_path(current_user.id), class: "font__link" %>
 <% else %>
-  <%= link_to 'ログイン', new_user_session_path %>
-  <%= link_to '新規登録', new_user_registration_path %>
+  <%= link_to 'ログイン', new_user_session_path, class: "font__link" %>
+  <%= link_to '新規登録', new_user_registration_path, class: "font__link" %>
 <% end %>

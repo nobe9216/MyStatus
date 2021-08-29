@@ -14,16 +14,16 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :last_name, presence: true
-  validates :last_name_kana, presence: true
-  validates :first_name, presence: true
-  validates :first_name_kana, presence: true
+  # validates :last_name, presence: true
+  # validates :last_name_kana, presence: true
+  # validates :first_name, presence: true
+  # validates :first_name_kana, presence: true
   validates :nickname, presence: true
-  validates :start_weight, presence: true
-  validates :goal_weight, presence: true
-  validates :age, presence: true
-  validates :height, presence: true
-  validates :sex, presence: true
+  # validates :start_weight, presence: true
+  # validates :goal_weight, presence: true
+  # validates :age, presence: true
+  # validates :height, presence: true
+  # validates :sex, presence: true
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

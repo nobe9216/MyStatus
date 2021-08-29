@@ -1,38 +1,45 @@
-<a href='/'>MyStatus</a>
-<nav>
-  <ul class="nav-list">
-    <% if user_signed_in? %>
-      <li class="nav-list-item">
-        <%= link_to 'トップ', root_path %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to 'マイページ', user_path(current_user) %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to 'カレンダー', user_statuses_path(current_user) %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to 'タイムライン', user_timeline_path(current_user) %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to 'ユーザー一覧', users_path %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
-      </li>
-    <% else %>
-      <li class="nav-list-item">
-        <%= link_to 'トップ', root_path %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to 'このサイトについて', about_path %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to '新規登録', new_user_registration_path %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to 'ログイン', new_user_session_path %>
-      </li>
-    <% end %>
-  </ul>
-</nav>
+<div class="header">
+  <a href='/' class="header__title">MyStatus</a>
+  <!--<span class="header__hm-menu">-->
+  <!--  <i></i>-->
+  <!--  <i></i>-->
+  <!--  <i></i>-->
+  <!--</span>-->
+  <nav>
+    <ul class="header__link">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'トップ', root_path, class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to 'マイページ', user_path(current_user), class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to 'マイカレンダー', user_statuses_path(current_user), class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to 'タイムライン', user_timeline_path(current_user), class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to 'ユーザー一覧', users_path, class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "header__link-item" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'トップ', root_path, class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to 'このサイトについて', about_path, class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to '新規登録', new_user_registration_path, class: "header__link-item" %>
+        </li>
+        <li>
+          <%= link_to 'ログイン', new_user_session_path, class: "header__link-item" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

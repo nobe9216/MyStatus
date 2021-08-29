@@ -1,21 +1,38 @@
-<h4>コメント一覧</h4>
-<div>
-<p>コメント件数：<%= status.comments.count %></p>
-<% status.comments.each do |comments| %>
-  <p><%#= image_tag('sample-author1.jpg') %></p>
-  <%= comments.user.nickname %>
-  <%= comments.created_at.strftime('%Y/%m/%d') %><%= comments.comment %>
-  <% if comments.user == current_user %>
+<div class="comments">
+  <h4>コメント一覧</h4>
   <div>
-    <%= link_to "削除", user_status_comment_path(comments.user_id, comments.status_id, comments.id), method: :delete, remote: true %>
+  <p>コメント件数：<%= status.comments.count %></p>
+  <table class="comments__table">
+    <% status.comments.last(5).each do |comments| %>
+      <tr>
+        <td class="comments__table-item">
+          <%= attachment_image_tag comments.user, :profile_image, class: "comments__img" %>
+        </td>
+        <td class="comments__table-item">
+          <%= comments.user.nickname %>
+        </td>
+        <td class="comments__table-item">
+          <%= comments.created_at.strftime('%Y/%m/%d') %>
+        </td>
+        <td class="comments__table-item">
+          <%= comments.comment %>
+        </td>
+        <% if comments.user == current_user %>
+        <td>
+          <div>
+            <%= link_to "削除", user_status_comment_path(comments.user_id, comments.status_id, comments.id), method: :delete, remote: true, class: "all__link" %>
+          </div>
+        </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
   </div>
+  <h4>コメント投稿フォーム</h4>
+  <div>
+  <%= form_with(model:[user, status, comment]) do |f| %>
+    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %><br>
+    <%= f.submit "送信する", class: "all__link" %>
   <% end %>
-<% end %>
-</div>
-<h4>コメント投稿フォーム</h4>
-<div>
-<%= form_with(model:[user, status, comment]) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
+  </div>
 </div>

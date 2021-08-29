@@ -1,70 +1,110 @@
-<h1>プロフィール編集</h1>
+<div class="users">
+  <div>
+    <h1>プロフィール編集</h1>
 
-<%= form_with model:@user, url:user_path(current_user), local:true do |f| %>
-  <div class="field">
-    <%= f.label :姓 %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= form_with model:@user, url:user_path(current_user), local:true do |f| %>
+      <div class="users__form">
+        <div class="users__form-item">
+          <div class="field">
+            <%= f.label :姓 %><br />
+            <%= f.text_field :last_name, autofocus: true %>
+          </div>
+        </div>
+
+        <div class="users__form-item">
+          <div class="field">
+            <%= f.label :名 %><br />
+            <%= f.text_field :first_name, autofocus: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="users__form">
+        <div class="users__form-item">
+          <div class="field">
+            <%= f.label :セイ %><br />
+            <%= f.text_field :last_name_kana, autofocus: true %>
+          </div>
+        </div>
+
+        <div class="users__form-item">
+          <div class="field">
+            <%= f.label :メイ %><br />
+            <%= f.text_field :first_name_kana, autofocus: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :ニックネーム %><br />
+          <%= f.text_field :nickname, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :プロフィール画像 %><br />
+          <%= f.attachment_field :profile_image, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :開始時の体重 %><br />
+          <%= f.text_field :start_weight, autofocus: true %>kg
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :目標体重 %><br />
+          <%= f.text_field :goal_weight, autofocus: true %>kg
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :開始時の体脂肪率 %><br />
+          <%= f.text_field :start_fat, autofocus: true %>%
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :年齢 %><br />
+          <%= f.text_field :age, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :身長 %><br />
+          <%= f.text_field :height, autofocus: true %>cm
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :性別 %><br />
+          <%= f.select :sex, [["男", "男"], ["女", "女"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
+          <%= f.label :自己紹介 %><br />
+          <%= f.text_area :self_introduction, autofocus: true %>
+        </div>
+      </div>
+
+      <div class="users__edit-link-item">
+        <%= f.submit '更新', class: "all__link" %>
+      </div>
+    <% end %>
+
+    <div class="users__edit-link-item">
+      <%= link_to "戻る", :back, class: "all__link" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :名 %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :セイ %><br />
-    <%= f.text_field :last_name_kana, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :メイ %><br />
-    <%= f.text_field :first_name_kana, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ニックネーム %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :プロフィール画像 %><br />
-    <%= f.attachment_field :profile_image, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :開始時の体重 %><br />
-    <%= f.text_field :start_weight, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :目標体重 %><br />
-    <%= f.text_field :goal_weight, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :開始時の体脂肪率 %><br />
-    <%= f.text_field :start_fat, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :年齢 %><br />
-    <%= f.text_field :age, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :身長 %><br />
-    <%= f.text_field :height, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :性別 %><br />
-    <%= f.text_field :sex, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :自己紹介 %><br />
-    <%= f.text_area :self_introduction, autofocus: true %>
-  </div>
-
-  <%= f.submit '更新' %>
-<% end %>
+</div>

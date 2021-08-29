@@ -6,8 +6,8 @@ class CreateStatuses < ActiveRecord::Migration[5.2]
       t.integer :favorite_id
       t.integer :comment_id
       t.date :date, default: '', null: false
-      t.integer :weight, default: '', null: false
-      t.integer :fat
+      t.float :weight, default: '', null: false
+      t.float :fat
       t.text :breakfast
       t.text :lunch
       t.text :dinner

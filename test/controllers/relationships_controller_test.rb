@@ -25,5 +25,4 @@ class RelationshipsControllerTest < ActionDispatch::IntegrationTest
     get relationships_timeline_url
     assert_response :success
   end
-
 end

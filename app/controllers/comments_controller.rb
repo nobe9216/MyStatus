@@ -9,15 +9,17 @@ class CommentsController < ApplicationController
     if @comment.save
       @comment = Comment.new
     end
-    # redirect_to request.referer
   end
 
   def destroy
     @user = User.find(params[:user_id])
     @status = Status.find(params[:status_id])
     @comment = Comment.new
-    Comment.find_by(user_id: params[:user_id], status_id: params[:status_id], id: params[:id]).destroy
-    # redirect_to request.referer
+    Comment.find_by(
+      user_id: params[:user_id],
+      status_id: params[:status_id],
+      id: params[:id]
+    ).destroy
   end
 
   private

@@ -47,6 +47,15 @@ class StatusesController < ApplicationController
   private
 
   def status_params
-    params.require(:status).permit(:date, :weight, :fat, :breakfast, :lunch, :dinner, :snacks, :memo)
+    params.require(:status).permit(
+      :date,
+      :weight,
+      :fat,
+      :breakfast,
+      :lunch,
+      :dinner,
+      :snacks,
+      :memo,
+    )
   end
 end

@@ -45,9 +45,7 @@ $(function () {
         }
     });
 });
-// $(function () {
-//  console.log("test")
-//  $('#calendar').fullCalendar({
-//   events: 'statuses.json'
-//  });
-// })
+
+// $('.header__hm-menu').on('click', function () {
+//   $('.header__hm-menu, .header__nav').toggleClass('show');
+// });

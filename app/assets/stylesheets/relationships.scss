@@ -1,3 +1,29 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.relationships {
+  padding: 1rem 2rem;
+
+  &__table {
+    width: 80%;
+    margin: 1rem 2rem;
+    text-align: center;
+    border-collapse: collapse;
+  }
+
+  &__table-head {
+    border-bottom: 2px solid #696969;
+  }
+
+  &__table-item {
+    height: 50px;
+    padding: 0.5rem;
+  }
+
+  &__img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 1rem;
+  }
+}

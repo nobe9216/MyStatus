@@ -4,7 +4,7 @@
   line-height: 1.5;
   position: relative;
   padding: 0.5rem 2rem;
-  background-color: #2e8b57;
+  background-color: #808080;
   color: #fff;
   border-radius: 0.5rem;
 }
@@ -15,7 +15,25 @@
   line-height: 1.5;
   position: relative;
   padding: 0.5rem 2rem;
-  background-color: #3cb371;
+  background-color: #a9a9a9;
   color: #fff;
   border-radius: 0.5rem;
+}
+
+%link-notbutton {
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  padding: 0.5rem;
+  color: #696969;
+}
+
+%link-notbutton:hover {
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  padding: 0.5rem;
+  color: #a9a9a9;
 }

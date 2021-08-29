@@ -1,21 +1,85 @@
-<h1>記録詳細</h1>
-<h4>日付</h4>
-<%= @status.date %>
-<h4>体重</h4>
-<%= @status.weight %>
-<h4>体脂肪率</h4>
-<%= @status.fat %>
-<h4>食事内容</h4>
-<h6>朝食</h6>
-<%= @status.breakfast %>
-<h6>昼食</h6>
-<%= @status.lunch %>
-<h6>夕食</h6>
-<%= @status.dinner %>
-<h6>間食</h6>
-<%= @status.snacks %>
-<h4>メモ</h4>
-<%= @status.memo %>
-<%= link_to '編集', edit_user_status_path(@user.id, @status.id) %>
-<div class="favorite"><%= render 'favorites/favorite', user: current_user, status: @status %></div>
-<div class="comments"><%= render 'comments/comment', user: @user, status: @status, comment: @comment %></div>
+<div class="statuses">
+  <h1>記録詳細</h1>
+  <div class="favorite"><%= render 'favorites/favorite', user: current_user, status: @status %></div>
+  <table class="statuses__table">
+    <tr>
+      <td class="statuses__table-item">
+        <h4>日付</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.date %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>体重</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.weight %>kg
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>体脂肪率</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.fat %>%
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>朝食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.breakfast %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>昼食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.lunch %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>夕食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.dinner %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>間食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.snacks %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>メモ</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.memo %>
+      </td>
+    </tr>
+  </table>
+  <div class="statuses__link">
+    <% if @user.id == current_user.id %>
+      <div class="statuses__link-item">
+        <%= link_to '編集', edit_user_status_path(@user.id, @status.id), class: "all__link" %>
+      </div>
+      <div class="statuses__link-item">
+        <%= link_to '削除', user_statuses_path(@user.id, @status.id), method: :delete, class: "all__link" %>
+      </div>
+    <% else %>
+      <div class="statuses__link-item">
+        <%= link_to 'このユーザーのカレンダーへ', user_statuses_path(@user.id), class: "all__link" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="comments"><%= render 'comments/comment', user: @user, status: @status, comment: @comment %></div>
+</div>

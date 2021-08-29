@@ -1,2 +1,12 @@
-<div id="calendar"></div>
-<%= link_to '記録する', new_user_status_path(@user.id) %>
+<div class="statuses">
+  <div id="calendar"></div>
+  <% if @user.id == current_user.id %>
+    <div class="statuses__link">
+      <%= link_to '記録する', new_user_status_path(@user.id), class: "all__link" %>
+    </div>
+  <% else %>
+    <div class="statuses__link">
+      <%= link_to 'このユーザーのページへ', user_path(@user.id), class: "all__link" %>
+    </div>
+  <% end %>
+</div>

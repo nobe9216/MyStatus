@@ -1,2 +1,85 @@
-<h1>Statuses#show</h1>
-<p>Find me in app/views/statuses/show.html.erb</p>
+<div class="statuses">
+  <h1>記録詳細</h1>
+  <div class="favorite"><%= render 'favorites/favorite', user: current_user, status: @status %></div>
+  <table class="statuses__table">
+    <tr>
+      <td class="statuses__table-item">
+        <h4>日付</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.date %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>体重</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.weight %>kg
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>体脂肪率</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.fat %>%
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>朝食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.breakfast %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>昼食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.lunch %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>夕食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.dinner %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>間食</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.snacks %>
+      </td>
+    </tr>
+    <tr>
+      <td class="statuses__table-item">
+        <h4>メモ</h4>
+      </td>
+      <td class="statuses__table-item">
+        <%= @status.memo %>
+      </td>
+    </tr>
+  </table>
+  <div class="statuses__link">
+    <% if @user.id == current_user.id %>
+      <div class="statuses__link-item">
+        <%= link_to '編集', edit_user_status_path(@user.id, @status.id), class: "all__link" %>
+      </div>
+      <div class="statuses__link-item">
+        <%= link_to '削除', user_statuses_path(@user.id, @status.id), method: :delete, class: "all__link" %>
+      </div>
+    <% else %>
+      <div class="statuses__link-item">
+        <%= link_to 'このユーザーのカレンダーへ', user_statuses_path(@user.id), class: "all__link" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="comments"><%= render 'comments/comment', user: @user, status: @status, comment: @comment %></div>
+</div>

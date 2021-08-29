@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  attachment :image
+  attachment :profile_image
 
   has_many :statuses, dependent: :destroy
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
@@ -14,15 +14,27 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :last_name, presence: true
-  validates :last_name_kana, presence: true
-  validates :first_name, presence: true
-  validates :first_name_kana, presence: true
+  # validates :last_name, presence: true
+  # validates :last_name_kana, presence: true
+  # validates :first_name, presence: true
+  # validates :first_name_kana, presence: true
   validates :nickname, presence: true
-  validates :start_weight, presence: true
-  validates :goal_weight, presence: true
-  validates :age, presence: true
-  validates :height, presence: true
-  validates :sex, presence: true
+  # validates :start_weight, presence: true
+  # validates :goal_weight, presence: true
+  # validates :age, presence: true
+  # validates :height, presence: true
+  # validates :sex, presence: true
+
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+
+  def following?(user)
+    followings.include?(user)
+  end
 
 end

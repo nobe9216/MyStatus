@@ -1,2 +1,14 @@
-<h1>Users#unsubscribe</h1>
-<p>Find me in app/views/users/unsubscribe.html.erb</p>
+<div class="users">
+  <div class="users__message-container">
+    <h1 class="users__large-message"><strong>本当に退会しますか？</strong></h1>
+    <p class="users__message"><strong>退会すると、アカウントの情報は全て削除されます。</strong></p>
+    <div class="users__unsubscribe-link">
+      <div class="users__unsubscribe-link-item">
+        <%= link_to "する", user_path(current_user), data: { confirm: "本当に退会しますか？" }, method: :delete, class: "all__link" %>
+      </div>
+      <div class="users__unsubscribe-link-item">
+        <%= link_to "しない", user_path(current_user), class: "all__link" %>
+      </div>
+    </div>
+  </div>
+</div>

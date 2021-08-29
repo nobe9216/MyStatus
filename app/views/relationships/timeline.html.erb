@@ -1,2 +1,31 @@
-<h1>Relationships#timeline</h1>
-<p>Find me in app/views/relationships/timeline.html.erb</p>
+<div class="relationships">
+  <h1>タイムライン</h1>
+  <table class="relationships__table">
+    <thead class="relationships__table-head">
+      <tr>
+        <th class="relationships__table-item"></th>
+        <th class="relationships__table-item">ニックネーム</th>
+        <th class="relationships__table-item">日付</th>
+        <th class="relationships__table-item">体重</th>
+        <th class="relationships__table-item">体脂肪率</th>
+        <th class="relationships__table-item">メモ</th>
+        <th class="relationships__table-item"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @timeline.each do |status| %>
+        <tr>
+          <td class="relationships__table-item"><%= attachment_image_tag status.user, :profile_image, class: "relationships__img" %></td>
+          <td class="relationships__table-item"><%= status.user.nickname %></td>
+          <td class="relationships__table-item"><%= status.date %></td>
+          <td class="relationships__table-item"><%= status.weight %></td>
+          <td class="relationships__table-item"><%= status.fat %></td>
+          <td class="relationships__table-item"><%= status.memo %></td>
+          <td class="relationships__table-item">
+              <%= link_to '詳細', user_status_path(status.user.id, status.id), class: "all__link" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

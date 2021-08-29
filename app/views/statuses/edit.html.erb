@@ -1,2 +1,76 @@
-<h1>Statuses#edit</h1>
-<p>Find me in app/views/statuses/edit.html.erb</p>
+<div class="statuses">
+  <h1>記録の編集</h1>
+  <table>
+    <%= form_with model:@status, url:user_status_path(@user.id, @status.id), local:true do |f| %>
+    <tr>
+      <td>
+        <h4>日付</h4>
+      </td>
+      <td>
+        <%= f.date_field :date %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>体重</h4>
+      </td>
+      <td>
+        <%= f.text_field :weight %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>体脂肪率</h4>
+      </td>
+      <td>
+        <%= f.text_field :fat %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>朝食</h4>
+      </td>
+      <td>
+        <%= f.text_area :breakfast %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>昼食</h4>
+      </td>
+      <td>
+        <%= f.text_area :lunch %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>夕食</h4>
+      </td>
+      <td>
+        <%= f.text_area :dinner %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>間食</h4>
+      </td>
+      <td>
+        <%= f.text_area :snacks %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>メモ</h4>
+      </td>
+      <td>
+        <%= f.text_area :memo %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit '更新', class: "all__link" %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

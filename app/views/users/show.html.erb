@@ -1,2 +1,123 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="users">
+  <div class="users__sidebar">
+    <h3 class="users__sidebar-title"><strong>ダイエットランキング</strong></h3>
+    <table>
+      <thead>
+        <tr>
+          <th class="users__sidebar-th">ニックネーム</th>
+          <th class="users__sidebar-th">性別</th>
+          <th class="users__sidebar-th">年齢</th>
+          <th class="users__sidebar-th">マイナス体重</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ranking.first(20).each do |ranking| %>
+        <tr>
+          <td class="users__sidebar-td"><%= ranking[:nickname] %></td>
+          <td class="users__sidebar-td"><%= ranking[:sex] %></td>
+          <td class="users__sidebar-td"><%= ranking[:age] %>歳</td>
+          <td class="users__sidebar-td"><%= ranking[:diff].round(1) %>kg</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="users__main">
+    <div>
+      <h1 class="users__main-title"><strong><%= @user.nickname %>さんのページ</strong></h1>
+      <div class="users__main-user-info">
+        <div class="users__main-user-img">
+          <%= attachment_image_tag @user, :profile_image, class: "users__img" %>
+        </div>
+        <div>
+          <div class="users__main-user-introduction">
+            <div class="users__main-user-introduction-container">
+              <h3>目標体重</h3>
+              <%= @user.goal_weight %>kg
+            </div>
+            <div class="users__main-user-introduction-container">
+              <h3>自己紹介</h3>
+              <%= @user.self_introduction %>
+            </div>
+          </div>
+          <div class="users__main-user-link">
+            <div class="users__main-user-link-item">
+              <%= link_to "フォロー数：#{@user.followings.count}人", user_followings_path(@user.id), class: "all__link" %>
+            </div>
+            <div class="users__main-user-link-item">
+              <%= link_to "フォロワー数：#{@user.followers.count}人", user_followers_path(@user.id), class: "all__link" %>
+            </div>
+              <% if current_user.id == @user.id %>
+                <div class="users__main-user-link-item">
+                  <%= link_to 'プロフィール編集', edit_user_path(@user.id), class: "all__link" %>
+                </div>
+                <div class="users__main-user-link-item">
+                  <%= link_to 'メールアドレス パスワード変更', edit_user_registration_path, class: "all__link" %>
+                </div>
+              <% else %>
+                <% if current_user.following?(@user) %>
+                  <div class="users__main-user-link-item">
+                    <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete, class: "all__link" %>
+                  </div>
+                <% else %>
+                  <div class="users__main-user-link-item">
+                    <%= link_to "フォロー", user_relationships_path(@user.id), method: :post, class: "all__link" %>
+                  </div>
+                <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!--https://qiita.com/kei-kun1960/items/b84a7e421e3ed2620be9-->
+      <canvas id="myChart" width="200" height="100"></canvas>
+      <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: [
+              <% @chartlabels.each do |label| %>
+                "<%= label %>",
+              <% end %>
+            ],
+            datasets: [{
+              label: "体重",
+              data: <%= @weights %>,
+              backgroundColor: 'rgba(128, 128, 128, 1.0)',
+              borderColor: 'rgba(128, 128, 128, 1.0)',
+              fill: false
+            }]
+          },
+        });
+      </script>
+    </div>
+
+    <% if @last_weight.present? %>
+      <h1 class="users__message"><strong>目標まであと<%= @user.goal_weight.to_i - @last_weight.to_i %>kg！！</strong></h1>
+    <% else %>
+      <h1 class="users__message"><strong>体重を記録しよう！！</strong></h1>
+    <% end %>
+
+    <div class="users__main-user-link">
+      <% if @user.id == current_user.id %>
+      <div class="users__main-user-link-item">
+        <%= link_to '記録する', new_user_status_path(@user.id), class: "all__link" %>
+      </div>
+      <div class="users__main-user-link-item">
+        <%= link_to 'マイカレンダーへ', user_statuses_path(@user.id), class: "all__link" %>
+      </div>
+      <div class="users__main-user-link-item">
+        <%= link_to '退会はこちら', unsubscribe_path, class: "all__link" %>
+      </div>
+      <% else %>
+      <div class="users__main-user-link-item">
+        <%= link_to 'このユーザーのカレンダーへ', user_statuses_path(@user.id), class: "all__link" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

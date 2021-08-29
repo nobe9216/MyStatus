@@ -1,0 +1,17 @@
+@import "link";
+
+.all {
+  font-family: Hiragino Mincho ProN;
+  box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
+
+  &__link {
+    @extend %link;
+  }
+
+  &__link-notbutton {
+    @extend %link-notbutton;
+  }
+}

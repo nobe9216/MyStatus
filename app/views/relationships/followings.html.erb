@@ -1,2 +1,27 @@
-<h1>Relationships#followings</h1>
-<p>Find me in app/views/relationships/followings.html.erb</p>
+<div class="relationships">
+  <h1><%= @user.nickname %>のフォロー一覧</h1>
+  <% if @users.exists? %>
+    <table class="relationships__table">
+      <thead class="relationships__table-head">
+        <tr>
+          <th class="relationships__table-item"></th>
+          <th class="relationships__table-item">ニックネーム</th>
+          <th class="relationships__table-item">フォロー数</th>
+          <th class="relationships__table-item">フォロワー数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td class="relationships__table-item"><%= attachment_image_tag user, :profile_image, class: "relationships__img" %></td>
+            <td class="relationships__table-item"><%= link_to "#{user.nickname}", user_path(user.id), class: "all__link-notbutton" %></td>
+            <td class="relationships__table-item"><%= link_to "#{user.followings.count}", user_followings_path(user.id), class: "all__link-notbutton" %></td>
+            <td class="relationships__table-item"><%= link_to "#{user.followers.count}", user_followers_path(user.id), class: "all__link-notbutton" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>フォロー中のユーザーはいません</p>
+  <% end %>
+</div>

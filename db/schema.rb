@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2021_08_15_144611) do
     t.integer "favorite_id"
     t.integer "comment_id"
     t.date "date", null: false
-    t.integer "weight", null: false
-    t.integer "fat"
+    t.float "weight", null: false
+    t.float "fat"
     t.text "breakfast"
     t.text "lunch"
     t.text "dinner"
@@ -61,18 +61,18 @@ ActiveRecord::Schema.define(version: 2021_08_15_144611) do
     t.integer "comment_id"
     t.integer "followed_id"
     t.integer "follower_id"
-    t.string "last_name", default: "", null: false
-    t.string "last_name_kana", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
-    t.string "nickname", default: "", null: false
+    t.string "last_name"
+    t.string "last_name_kana"
+    t.string "first_name"
+    t.string "first_name_kana"
+    t.string "nickname"
     t.string "profile_image_id"
-    t.integer "start_weight", null: false
-    t.integer "goal_weight", null: false
-    t.integer "start_fat"
-    t.integer "age", null: false
-    t.integer "height", null: false
-    t.string "sex", default: "", null: false
+    t.float "start_weight"
+    t.float "goal_weight"
+    t.float "start_fat"
+    t.integer "age"
+    t.float "height"
+    t.string "sex"
     t.text "self_introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

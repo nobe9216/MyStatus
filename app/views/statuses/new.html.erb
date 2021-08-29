@@ -1,7 +1,7 @@
 <div class="statuses">
   <h1>記録の新規投稿</h1>
+  <%= form_with model:@status, url:user_statuses_path, local:true do |f| %>
   <table>
-    <%= form_with model:@status, url:user_statuses_path, local:true do |f| %>
     <tr>
       <td>
         <h4>日付</h4>
@@ -71,6 +71,6 @@
         <%= f.submit '投稿', class: "all__link" %>
       </td>
     </tr>
-    <% end %>
   </table>
+  <% end %>
 </div>

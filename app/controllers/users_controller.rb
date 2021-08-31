@@ -26,8 +26,8 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     @statuses = @user.statuses
-    @chartlabels = @statuses.order(date: :asc).map {|status| status.date.strftime('%m/%d') }
-    @weights = @statuses.order(date: :asc).map {|status| status.weight }
+    @chartlabels = @statuses.order(date: :asc).map { |status| status.date.strftime('%m/%d') }
+    @weights = @statuses.order(date: :asc).map { |status| status.weight }
     if @statuses.present?
       @last_weight = @statuses.order(date: :asc).last.weight
     end

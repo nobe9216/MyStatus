@@ -17,7 +17,7 @@ class UsersController < ApplicationController
           nickname: data.nickname,
           sex: data.sex,
           age: data.age,
-          diff: status.weight - data.start_weight
+          diff: status.weight - data.start_weight,
         }
       end
     end
@@ -54,6 +54,20 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :nickname, :profile_image, :start_weight, :goal_weight, :start_fat, :age, :height, :sex, :self_introduction)
+    params.require(:user).permit(
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :nickname,
+      :profile_image,
+      :start_weight,
+      :goal_weight,
+      :start_fat,
+      :age,
+      :height,
+      :sex,
+      :self_introduction,
+    )
   end
 end

@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :nickname, presence: true
+  validates :start_weight, presence: true
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

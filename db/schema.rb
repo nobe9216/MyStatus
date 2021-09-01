@@ -13,23 +13,23 @@
 ActiveRecord::Schema.define(version: 2021_08_15_144611) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "status_id", null: false
+    t.integer "user_id", default: 0, null: false
+    t.integer "status_id", default: 0, null: false
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "status_id", null: false
+    t.integer "user_id", default: 0, null: false
+    t.integer "status_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "followed_id", null: false
-    t.integer "follower_id", null: false
+    t.integer "followed_id", default: 0, null: false
+    t.integer "follower_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_08_15_144611) do
     t.integer "favorite_id"
     t.integer "comment_id"
     t.date "date", null: false
-    t.float "weight", null: false
+    t.float "weight", default: 0.0, null: false
     t.float "fat"
     t.text "breakfast"
     t.text "lunch"

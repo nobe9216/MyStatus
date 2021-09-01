@@ -14,6 +14,13 @@
 
       <div class="users__form-item">
         <div class="field">
+          <%= f.label :現在の体重 %><br />
+          <%= f.text_field :start_weight, autofocus: true %>kg
+        </div>
+      </div>
+
+      <div class="users__form-item">
+        <div class="field">
           <%= f.label :メールアドレス %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>

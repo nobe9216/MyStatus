@@ -7,14 +7,14 @@
         <div class="users__form-item">
           <div class="field">
             <%= f.label :姓 %><br />
-            <%= f.text_field :last_name, autofocus: true %>
+            <%= f.text_field :last_name, autofocus: true, required: true %>
           </div>
         </div>
 
         <div class="users__form-item">
           <div class="field">
             <%= f.label :名 %><br />
-            <%= f.text_field :first_name, autofocus: true %>
+            <%= f.text_field :first_name, autofocus: true, required: true %>
           </div>
         </div>
       </div>
@@ -23,14 +23,14 @@
         <div class="users__form-item">
           <div class="field">
             <%= f.label :セイ %><br />
-            <%= f.text_field :last_name_kana, autofocus: true %>
+            <%= f.text_field :last_name_kana, autofocus: true, required: true %>
           </div>
         </div>
 
         <div class="users__form-item">
           <div class="field">
             <%= f.label :メイ %><br />
-            <%= f.text_field :first_name_kana, autofocus: true %>
+            <%= f.text_field :first_name_kana, autofocus: true, required: true %>
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <div class="users__form-item">
         <div class="field">
           <%= f.label :ニックネーム %><br />
-          <%= f.text_field :nickname, autofocus: true %>
+          <%= f.text_field :nickname, autofocus: true, required: true %>
         </div>
       </div>
 
@@ -52,14 +52,14 @@
       <div class="users__form-item">
         <div class="field">
           <%= f.label :開始時の体重 %><br />
-          <%= f.text_field :start_weight, autofocus: true %>kg
+          <%= f.text_field :start_weight, autofocus: true, required: true %>kg
         </div>
       </div>
 
       <div class="users__form-item">
         <div class="field">
           <%= f.label :目標体重 %><br />
-          <%= f.text_field :goal_weight, autofocus: true %>kg
+          <%= f.text_field :goal_weight, autofocus: true, required: true %>kg
         </div>
       </div>
 
@@ -73,14 +73,14 @@
       <div class="users__form-item">
         <div class="field">
           <%= f.label :年齢 %><br />
-          <%= f.text_field :age, autofocus: true %>
+          <%= f.text_field :age, autofocus: true, required: true %>
         </div>
       </div>
 
       <div class="users__form-item">
         <div class="field">
           <%= f.label :身長 %><br />
-          <%= f.text_field :height, autofocus: true %>cm
+          <%= f.text_field :height, autofocus: true, required: true %>cm
         </div>
       </div>
 

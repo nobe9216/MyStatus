@@ -28,7 +28,7 @@
       <h1 class="users__main-title"><strong><%= @user.nickname %>さんのページ</strong></h1>
       <div class="users__main-user-info">
         <div class="users__main-user-img">
-          <%= attachment_image_tag @user, :profile_image, class: "users__img" %>
+          <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", class: "users__img" %>
         </div>
         <div>
           <div class="users__main-user-introduction">

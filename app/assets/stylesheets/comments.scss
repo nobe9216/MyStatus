@@ -19,3 +19,10 @@
     border-radius: 1rem;
   }
 }
+
+@media screen and (max-width: 425px) {
+  セレクタ {      /* 例です */
+    color: xxxx;  /* 例です */
+    width: xxpx;  /* 例です */
+  }
+}

@@ -1,10 +1,9 @@
 <div class="header">
   <a href='/' class="header__title">MyStatus</a>
-  <!--<span class="header__hm-menu">-->
-  <!--  <i></i>-->
-  <!--  <i></i>-->
-  <!--  <i></i>-->
-  <!--</span>-->
+  <div class="header__hamburger-menu">
+    <input type="checkbox" id="header__menu-btn-check">
+    <label for="header__menu-btn-check" class="header__menu-btn"><span></span></label>
+  </div>
   <nav>
     <ul class="header__link">
       <% if user_signed_in? %>
